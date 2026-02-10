@@ -1,0 +1,204 @@
+/* Login page: dynamic background + card */
+
+.login-page {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #0f172a;
+}
+
+/* Animated gradient base */
+.login-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    #0f172a 0%,
+    #1e293b 25%,
+    #0f172a 50%,
+    #1e3a5f 75%,
+    #0f172a 100%
+  );
+  background-size: 400% 400%;
+  animation: login-gradient-shift 18s ease infinite;
+  z-index: 0;
+}
+
+/* Floating orbs */
+.login-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.4;
+  animation: login-orb-float 20s ease-in-out infinite;
+  z-index: 1;
+}
+
+.login-orb--1 {
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, #3b82f6 0%, transparent 70%);
+  top: 10%;
+  left: 15%;
+  animation-delay: 0s;
+  animation-duration: 22s;
+}
+
+.login-orb--2 {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, #06b6d4 0%, transparent 70%);
+  bottom: 20%;
+  right: 10%;
+  animation-delay: -7s;
+  animation-duration: 25s;
+}
+
+.login-orb--3 {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, #8b5cf6 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: -14s;
+  animation-duration: 18s;
+  opacity: 0.25;
+}
+
+/* Subtle grid overlay */
+.login-page::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes login-gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes login-orb-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(30px, -40px) scale(1.05);
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+  75% {
+    transform: translate(40px, 30px) scale(1.02);
+  }
+}
+
+/* Card */
+.login-card-wrap {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 420px;
+  padding: 0 24px;
+}
+
+.login-card {
+  padding: 48px 40px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: #fff;
+}
+
+.login-subtitle {
+  text-align: center;
+  margin-bottom: 32px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.login-card .ant-form-item {
+  margin-bottom: 20px;
+}
+
+.login-card .ant-form-item:last-of-type {
+  margin-bottom: 28px;
+}
+
+.login-card .ant-input-affix-wrapper,
+.login-card .ant-input-password {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  padding: 12px 16px !important;
+}
+
+.login-card .ant-input-affix-wrapper:hover,
+.login-card .ant-input-password:hover {
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+.login-card .ant-input-affix-wrapper-focused,
+.login-card .ant-input-password-focused {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2) !important;
+}
+
+.login-card .ant-input {
+  background: transparent !important;
+  color: #fff !important;
+  font-size: 15px;
+}
+
+.login-card .ant-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.login-card .ant-input-prefix {
+  color: rgba(255, 255, 255, 0.5);
+  margin-right: 12px;
+}
+
+.login-card .ant-input-prefix .anticon {
+  font-size: 18px;
+}
+
+.login-card .ant-btn-primary {
+  height: 48px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  border: none;
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+}
+
+.login-card .ant-btn-primary:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.5);
+  transform: translateY(-1px);
+}
+
+.login-card .ant-form-item-explain-error {
+  color: #f87171;
+}

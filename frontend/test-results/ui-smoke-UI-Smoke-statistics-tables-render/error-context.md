@@ -1,0 +1,198 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - img "Alert Center" [ref=e7]
+      - menu [ref=e8]:
+        - menuitem "dashboard 仪表盘" [ref=e9] [cursor=pointer]:
+          - img "dashboard" [ref=e10]:
+            - img [ref=e11]
+          - generic [ref=e13]: 仪表盘
+        - menuitem "bell 告警规则" [ref=e14] [cursor=pointer]:
+          - img "bell" [ref=e15]:
+            - img [ref=e16]
+          - generic [ref=e18]: 告警规则
+        - menuitem "api 告警渠道" [ref=e19] [cursor=pointer]:
+          - img "api" [ref=e20]:
+            - img [ref=e21]
+          - generic [ref=e23]: 告警渠道
+        - menuitem "file-text 告警模板" [ref=e24] [cursor=pointer]:
+          - img "file-text" [ref=e25]:
+            - img [ref=e26]
+          - generic [ref=e28]: 告警模板
+        - menuitem "setting 告警历史" [ref=e29] [cursor=pointer]:
+          - img "setting" [ref=e30]:
+            - img [ref=e31]
+          - generic [ref=e33]: 告警历史
+        - menuitem "stop 告警静默" [ref=e34] [cursor=pointer]:
+          - img "stop" [ref=e35]:
+            - img [ref=e36]
+          - generic [ref=e38]: 告警静默
+        - menuitem "safety SLA配置" [ref=e39] [cursor=pointer]:
+          - img "safety" [ref=e40]:
+            - img [ref=e41]
+          - generic [ref=e44]: SLA配置
+        - menuitem "calendar 值班管理" [ref=e45] [cursor=pointer]:
+          - img "calendar" [ref=e46]:
+            - img [ref=e47]
+          - generic [ref=e49]: 值班管理
+        - menuitem "node-index 关联分析" [ref=e50] [cursor=pointer]:
+          - img "node-index" [ref=e51]:
+            - img [ref=e52]
+          - generic [ref=e54]: 关联分析
+        - menuitem "warning SLA违约" [ref=e55] [cursor=pointer]:
+          - img "warning" [ref=e56]:
+            - img [ref=e57]
+          - generic [ref=e59]: SLA违约
+        - menuitem "bar-chart 值班报告" [ref=e60] [cursor=pointer]:
+          - img "bar-chart" [ref=e61]:
+            - img [ref=e62]
+          - generic [ref=e64]: 值班报告
+        - menuitem "arrow-up 升级历史" [ref=e65] [cursor=pointer]:
+          - img "arrow-up" [ref=e66]:
+            - img [ref=e67]
+          - generic [ref=e69]: 升级历史
+        - menuitem "folder-open 工单管理" [ref=e70] [cursor=pointer]:
+          - img "folder-open" [ref=e71]:
+            - img [ref=e72]
+          - generic [ref=e74]: 工单管理
+        - menuitem "bar-chart 告警统计" [ref=e75] [cursor=pointer]:
+          - img "bar-chart" [ref=e76]:
+            - img [ref=e77]
+          - generic [ref=e79]: 告警统计
+        - menuitem "database 数据源" [ref=e80] [cursor=pointer]:
+          - img "database" [ref=e81]:
+            - img [ref=e82]
+          - generic [ref=e84]: 数据源
+        - menuitem "team 用户管理" [ref=e85] [cursor=pointer]:
+          - img "team" [ref=e86]:
+            - img [ref=e87]
+          - generic [ref=e89]: 用户管理
+        - menuitem "audit 审计日志" [ref=e90] [cursor=pointer]:
+          - img "audit" [ref=e91]:
+            - img [ref=e92]
+          - generic [ref=e94]: 审计日志
+        - menuitem "setting 系统设置" [ref=e95] [cursor=pointer]:
+          - img "setting" [ref=e96]:
+            - img [ref=e97]
+          - generic [ref=e99]: 系统设置
+    - img "left" [ref=e101] [cursor=pointer]:
+      - img [ref=e102]
+  - generic [ref=e104]:
+    - banner [ref=e105]:
+      - generic [ref=e106]:
+        - button "bell" [ref=e109] [cursor=pointer]:
+          - img "bell" [ref=e111]:
+            - img [ref=e112]
+        - generic [ref=e115] [cursor=pointer]:
+          - img "user" [ref=e118]:
+            - img [ref=e119]
+          - generic [ref=e121]: admin
+    - main [ref=e122]:
+      - generic [ref=e123]:
+        - generic [ref=e124]:
+          - generic [ref=e125]:
+            - heading "告警统计" [level=1] [ref=e126]
+            - paragraph [ref=e127]: 按时间范围查看告警趋势、级别分布与活跃规则
+          - generic [ref=e128]:
+            - generic [ref=e130]:
+              - textbox "开始日期" [ref=e132]
+              - generic "to" [ref=e134]:
+                - img "swap-right" [ref=e135]:
+                  - img [ref=e136]
+              - textbox "结束日期" [ref=e139]
+              - generic:
+                - img "calendar":
+                  - img
+            - button "download 导出 down" [ref=e141] [cursor=pointer]:
+              - img "download" [ref=e143]:
+                - img [ref=e144]
+              - generic [ref=e146]: 导出
+              - img "down" [ref=e147]:
+                - img [ref=e148]
+        - generic [ref=e151]:
+          - generic [ref=e155] [cursor=pointer]:
+            - generic [ref=e156]: 总告警数
+            - generic [ref=e157]:
+              - img "warning" [ref=e159]:
+                - img [ref=e160]
+              - generic [ref=e162]: "124"
+          - generic [ref=e166] [cursor=pointer]:
+            - generic [ref=e167]: 进行中告警
+            - generic [ref=e168]:
+              - img "close-circle" [ref=e170]:
+                - img [ref=e171]
+              - generic [ref=e173]: "113"
+          - generic [ref=e177] [cursor=pointer]:
+            - generic [ref=e178]: 已恢复告警
+            - generic [ref=e179]:
+              - img "check-circle" [ref=e181]:
+                - img [ref=e182]
+              - generic [ref=e185]: "11"
+          - generic [ref=e189] [cursor=pointer]:
+            - generic [ref=e190]: 严重告警
+            - generic [ref=e191]:
+              - img "info-circle" [ref=e193]:
+                - img [ref=e194]
+              - generic [ref=e197]: "114"
+        - generic [ref=e199]:
+          - generic [ref=e201]:
+            - generic [ref=e204]: 每日告警趋势
+            - table [ref=e212]:
+              - rowgroup [ref=e220]:
+                - row "日期 总告警 进行中 已恢复 严重 警告" [ref=e221]:
+                  - columnheader "日期" [ref=e222]
+                  - columnheader "总告警" [ref=e223]
+                  - columnheader "进行中" [ref=e224]
+                  - columnheader "已恢复" [ref=e225]
+                  - columnheader "严重" [ref=e226]
+                  - columnheader "警告" [ref=e227]
+              - rowgroup [ref=e228]:
+                - row "0 0 0 0 0" [ref=e229]:
+                  - cell [ref=e230]
+                  - cell "0" [ref=e231]
+                  - cell "0" [ref=e232]:
+                    - generic [ref=e233]: "0"
+                  - cell "0" [ref=e234]:
+                    - generic [ref=e235]: "0"
+                  - cell "0" [ref=e236]:
+                    - generic [ref=e237]: "0"
+                  - cell "0" [ref=e238]:
+                    - generic [ref=e239]: "0"
+          - generic [ref=e241]:
+            - generic [ref=e244]: 告警级别分布
+            - generic [ref=e246]:
+              - generic [ref=e247]:
+                - generic [ref=e248]: warning
+                - generic [ref=e249]: "10"
+              - generic [ref=e250]:
+                - generic [ref=e251]: critical
+                - generic [ref=e252]: "114"
+        - generic [ref=e254]:
+          - generic [ref=e257]: TOP 10 活跃告警规则
+          - table [ref=e265]:
+            - rowgroup [ref=e269]:
+              - row "规则名称 告警次数" [ref=e270]:
+                - columnheader "规则名称" [ref=e271]
+                - columnheader "告警次数" [ref=e272]
+            - rowgroup [ref=e273]:
+              - row "r01 113" [ref=e274]:
+                - cell "r01" [ref=e275]
+                - cell "113" [ref=e276]:
+                  - generic [ref=e277]: "113"
+        - generic [ref=e279]:
+          - generic [ref=e283] [cursor=pointer]:
+            - generic [ref=e284]: 告警规则总数
+            - generic [ref=e285]:
+              - img "bar-chart" [ref=e287]:
+                - img [ref=e288]
+              - generic [ref=e290]: "1"
+          - generic [ref=e294] [cursor=pointer]:
+            - generic [ref=e295]: 启用规则
+            - generic [ref=e297]: "1"
+          - generic [ref=e301] [cursor=pointer]:
+            - generic [ref=e302]: 今日告警
+            - generic [ref=e304]: "96"
+```

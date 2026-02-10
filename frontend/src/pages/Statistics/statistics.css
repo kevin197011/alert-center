@@ -1,0 +1,169 @@
+/* Statistics page layout */
+
+.statistics-page {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.statistics-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.statistics-header-content h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.02em;
+}
+
+.statistics-header-content p {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+[data-theme='dark'] .statistics-header-content p,
+.ant-layout-content[style*='background: rgb(31, 31, 31)'] .statistics-header-content p {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.statistics-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.statistics-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 280px;
+}
+
+/* Stats row */
+
+.statistics-stats {
+  margin-bottom: 28px;
+}
+
+.statistics-stat-card {
+  border-radius: 10px;
+  transition: box-shadow 0.2s ease;
+}
+
+.statistics-stat-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.statistics-stat-card .ant-statistic-title {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.statistics-stat-card .ant-statistic-content {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.statistics-stat-card .ant-statistic-content-value {
+  letter-spacing: -0.02em;
+}
+
+.statistics-stat-card .stat-icon {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.stat-icon--warning { color: #faad14; }
+.stat-icon--firing { color: #ff4d4f; }
+.stat-icon--resolved { color: #52c41a; }
+.stat-icon--critical { color: #ff4d4f; }
+
+/* Sections */
+
+.statistics-grid {
+  margin-bottom: 24px;
+}
+
+.statistics-section {
+  margin-bottom: 24px;
+}
+
+.statistics-section:last-child {
+  margin-bottom: 0;
+}
+
+.statistics-card {
+  border-radius: 10px;
+  height: 100%;
+}
+
+.statistics-card .ant-card-head {
+  font-weight: 600;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.statistics-card .ant-table {
+  font-size: 13px;
+}
+
+.statistics-card .ant-table-thead > tr > th {
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 12px;
+}
+
+/* Severity distribution list */
+
+.statistics-severity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.statistics-severity-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 8px;
+}
+
+.statistics-severity-item .label {
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.statistics-severity-item .value {
+  font-weight: 600;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+
+/* Overview row (rules / today) */
+
+.statistics-overview {
+  margin-top: 8px;
+}
+
+.statistics-overview .ant-card {
+  border-radius: 10px;
+}
+
+.statistics-overview .ant-statistic-title {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.statistics-overview .ant-statistic-content-value {
+  font-size: 22px;
+  font-weight: 600;
+}

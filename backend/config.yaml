@@ -1,0 +1,58 @@
+# Alert Center Configuration
+
+# Application
+app:
+  host: "0.0.0.0"
+  port: 8080
+  mode: "debug"  # debug, release, test
+
+# Database
+database:
+  host: "localhost"
+  port: 5432
+  username: "postgres"
+  password: "postgres"
+  name: "alert_center"
+  sslmode: "disable"
+  max_open_conns: 25
+  max_idle_conns: 5
+  conn_max_lifetime: 300  # seconds
+
+# Redis
+redis:
+  host: "localhost"
+  port: 6379
+  password: ""
+  db: 0
+  pool_size: 10
+
+# JWT
+jwt:
+  secret: "your-super-secret-key-change-in-production"
+  expiration: 86400  # 24 hours in seconds
+  refresh_expiration: 604800  # 7 days
+
+# Prometheus
+prometheus:
+  enabled: true
+  path: "/metrics"
+
+# Alert Channels
+channels:
+  lark:
+    enabled: true
+    webhook_url: ""
+  telegram:
+    enabled: true
+    bot_token: ""
+    chat_id: ""
+
+# Logging
+logging:
+  level: "info"  # debug, info, warn, error
+  format: "json"  # json, text
+  output: "stdout"  # stdout, file
+  filename: "logs/alert-center.log"
+  max_size: 100  # MB
+  max_age: 30    # days
+  max_backups: 10

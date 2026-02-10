@@ -1,0 +1,1401 @@
+[
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "AGIN 接口访问延迟超阈值超过5s",
+      "note": "(instance {{ $labels.instance }})",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 30,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "probe_duration_seconds{} > 5",
+            "severity": 2,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {
+        "instance": "{{ $labels.instance }}"
+      },
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "cesar",
+      "cron_pattern": "@every 15s",
+      "notify_rule_ids": [
+        1,
+        3
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "ApplicationInstanceDown - K8S",
+      "note": "Application is down (instance {{ $labels.pod}})",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 60,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "up{namespace=~\"g32.*\",container!~\"base-task-backend|chat-client-backend|atmosphere-client-backend|atmosphere-openapi-backend\"} == 0",
+            "severity": 2,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {
+        "instance": "{{ $labels.instance }}"
+      },
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "超管",
+      "cron_pattern": "@every 30s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "BP/CP ApiProbeStatus - Network",
+      "note": "BP/CP API Probe Status is greater than 3xx. ({{ $labels.instance }})",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 30,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "probe_http_status_code{} >= 300",
+            "severity": 2,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {
+        "instance": "{{ $labels.target}}"
+      },
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "超管",
+      "cron_pattern": "@every 15s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "HostClockSkew - Basic",
+      "note": "Host clock skew (instance {{ $labels.instance }})",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 120,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "(node_timex_offset_seconds > 0.05 and deriv(node_timex_offset_seconds[5m]) >= 0) or (node_timex_offset_seconds < -0.05 and deriv(node_timex_offset_seconds[5m])) * on(instance) group_left (nodename) node_uname_info{nodename=~\".+\"} <= 0",
+            "severity": 2,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {
+        "hostname": "{{ $labels.nodename }}",
+        "instance": "{{ $labels.instance }}"
+      },
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "超管",
+      "cron_pattern": "@every 30s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "HostHighCpuLoad - Basic",
+      "note": "CPU load is high (instance {{ $labels.instance }})",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 120,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "(100 - (avg by(instance) (rate(node_cpu_seconds_total{mode=\"idle\"}[2m])) * 100)) * on(instance) group_left (nodename) node_uname_info{nodename=~\".+\"} > 90",
+            "severity": 1,
+            "unit": "none"
+          },
+          {
+            "prom_ql": "(100 - (avg by(instance) (rate(node_cpu_seconds_total{mode=\"idle\"}[2m])) * 100)) * on(instance) group_left (nodename) node_uname_info{nodename=~\".+\"} > 70",
+            "severity": 2,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {
+        "hostname": "{{ $labels.nodename }}",
+        "instance": "{{ $labels.instance }}"
+      },
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "超管",
+      "cron_pattern": "@every 15s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "HostInstanceDown - Basic",
+      "note": "Instance is down (instance {{ $labels.instance }})",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 120,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "up{container=\"node-exporter\",tier!=\"db\"} == 0",
+            "severity": 1,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {
+        "hostname": "{{ $labels.nodename }}",
+        "instance": "{{ $labels.instance }}"
+      },
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "超管",
+      "cron_pattern": "@every 15s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "HostOomKillDetected - Basic",
+      "note": "OOM kill detected.",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 0,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "(increase(node_vmstat_oom_kill[1m])) * on(instance) group_left (nodename) node_uname_info{nodename=~\".+\"} > 0",
+            "severity": 2,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {
+        "hostname": "{{ $labels.nodename }}",
+        "instance": "{{ $labels.instance }}"
+      },
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "超管",
+      "cron_pattern": "@every 15s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "HostOutOfDiskSpace - Basic",
+      "note": "Disk is almost full.",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 120,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "((node_filesystem_avail_bytes * 100) / node_filesystem_size_bytes < 10 and ON (instance, device, mountpoint) node_filesystem_readonly) * on(instance) group_left (nodename) node_uname_info{nodename=~\".+\"}",
+            "severity": 1,
+            "unit": "none"
+          },
+          {
+            "prom_ql": "((node_filesystem_avail_bytes * 100) / node_filesystem_size_bytes < 20 and ON (instance, device, mountpoint) node_filesystem_readonly) * on(instance) group_left (nodename) node_uname_info{nodename=~\".+\"}",
+            "severity": 2,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {
+        "hostname": "{{ $labels.nodename }}",
+        "instance": "{{ $labels.instance }}"
+      },
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "超管",
+      "cron_pattern": "@every 15s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "HostOutOfMemory - Basic",
+      "note": "Node memory is filling up.",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 300,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "(100 - node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes * 100) * on(instance) group_left (nodename) node_uname_info{nodename=~\".+\"} > 90",
+            "severity": 1,
+            "unit": "none"
+          },
+          {
+            "prom_ql": "(100 - node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes * 100) * on(instance) group_left (nodename) node_uname_info{nodename=~\".+\"} > 80",
+            "severity": 2,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {
+        "hostname": "{{ $labels.nodename }}",
+        "instance": "{{ $labels.instance }}"
+      },
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "超管",
+      "cron_pattern": "@every 15s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "HostUnusualNetworkThroughput - Basic",
+      "note": "Host network interfaces are probably receiving or sending too much data.(> 100MB/s)",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 300,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "(sum by (instance) (rate(node_network_receive_bytes_total[2m])) / 1024 / 1024 > 100 or sum by (instance) (rate(node_network_transmit_bytes_total[2m])) / 1024 / 1024) * on(instance) group_left (nodename) node_uname_info{nodename=~\".+\"} > 200",
+            "severity": 2,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {
+        "hostname": "{{ $labels.nodename }}",
+        "instance": "{{ $labels.instance }}"
+      },
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "超管",
+      "cron_pattern": "@every 15s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "PersistentvolumeclaimOutOfSpace - K8S",
+      "note": "PVC is almost full.",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 60,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "(kubelet_volume_stats_used_bytes{persistentvolumeclaim!=\"\"} / kubelet_volume_stats_capacity_bytes{persistentvolumeclaim!=\"\"}) * 100 > 90",
+            "severity": 2,
+            "unit": "none"
+          },
+          {
+            "prom_ql": "(kubelet_volume_stats_used_bytes{persistentvolumeclaim!=\"\"} / kubelet_volume_stats_capacity_bytes{persistentvolumeclaim!=\"\"}) * 100 > 80",
+            "severity": 3,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {},
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "超管",
+      "cron_pattern": "@every 30s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "Pod Cpu usage exceeds 90% - k8S",
+      "note": "",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 60,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "sum(rate(container_cpu_usage_seconds_total{namespace!=\"g32-tidb\",namespace=~\"g32.*\",service=\"kube-prometheus-stack-kubelet\", container!=\"\"}[5m])*100) by (namespace,pod) / sum(cluster:namespace:pod_cpu:active:kube_pod_container_resource_limits{ namespace!=\"g32-tidb\",namespace=~\"g32.*\"}) by (namespace,pod) >= 90",
+            "severity": 2,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {},
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "超管",
+      "cron_pattern": "@every 30s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "Pod Disk IOPS is too high - K8S",
+      "note": "",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 60,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "ceil(sum by(namespace,pod) (rate(container_fs_reads_total{container!=\"\", device=~\"(/dev/)?(mmcblk.p.+|nvme.+|rbd.+|sd.+|vd.+|xvd.+|dm-.+|md.+|dasd.+)\", namespace!=\"g32-tidb\",namespace!=\"g32-tidb\",namespace=~\"g32.*\"}[5m]) + rate(container_fs_writes_total{container!=\"\", device=~\"(/dev/)?(mmcblk.p.+|nvme.+|rbd.+|sd.+|vd.+|xvd.+|dm-.+|md.+|dasd.+)\", namespace!=\"g32-tidb\",namespace=~\"g32.*\"}[5m]))) > 25",
+            "severity": 2,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {},
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "超管",
+      "cron_pattern": "@every 30s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "Pod Disk ThroughPut is too high - K8S",
+      "note": "",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 60,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "sum by(namespace,pod) (rate(container_fs_reads_bytes_total{container!=\"\", device=~\"(/dev/)?(mmcblk.p.+|nvme.+|rbd.+|sd.+|vd.+|xvd.+|dm-.+|md.+|dasd.+)\", namespace!=\"g32-tidb\",namespace=~\"g32.*\"}[5m]) + rate(container_fs_writes_bytes_total{container!=\"\", device=~\"(/dev/)?(mmcblk.p.+|nvme.+|rbd.+|sd.+|vd.+|xvd.+|dm-.+|md.+|dasd.+)\", namespace!=\"g32-tidb\",namespace=~\"g32.*\"}[5m]))  > 157286400",
+            "severity": 2,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {},
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "超管",
+      "cron_pattern": "@every 30s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "Pod Memory usage exceeds 80% - K8S",
+      "note": "",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 60,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "sum(container_memory_working_set_bytes{job=\"kubelet\", metrics_path=\"/metrics/cadvisor\", namespace!=\"g32-tidb\",namespace=~\"g32.*\",pod!~\"anetd.*\",service=\"kube-prometheus-stack-kubelet\",container!=\"\", image!=\"\"}) by (namespace,pod) / sum(cluster:namespace:pod_memory:active:kube_pod_container_resource_limits{ namespace!=\"g32-tidb\",namespace=~\"g32.*\"}) by (namespace,pod) * 100 >= 80",
+            "severity": 1,
+            "unit": "none"
+          },
+          {
+            "prom_ql": "sum(container_memory_working_set_bytes{job=\"kubelet\", metrics_path=\"/metrics/cadvisor\", namespace!=\"g32-tidb\",namespace=~\"g32.*\",pod!~\"anetd.*\",service=\"kube-prometheus-stack-kubelet\",container!=\"\", image!=\"\"}) by (namespace,pod) / sum(cluster:namespace:pod_memory:active:kube_pod_container_resource_limits{ namespace!=\"g32-tidb\",namespace=~\"g32.*\"}) by (namespace,pod) * 100 >= 80",
+            "severity": 2,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {},
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "corwin",
+      "cron_pattern": "@every 30s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "Pod receive is too high - K8S",
+      "note": "",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 60,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "sum(rate(container_network_receive_bytes_total{ namespace!=\"g32-tidb\",namespace=~\"g32.*\",pod!~\"eks-pod-identity.*|kube-prometheus-stack-prometheus.*|kube-proxy.*|aws-node.*\"}[5m])) by (namespace,pod) > 20971520",
+            "severity": 2,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {},
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "超管",
+      "cron_pattern": "@every 30s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "Pod Status  Alarm - K8S",
+      "note": "Pod状态非Running或Succeeded超过3分钟报警。",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 60,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "kube_pod_status_phase{namespace!=\"g32-tidb\",namespace=~\"g32.*\",phase!~\"Running|Succeeded\",pod!~\"base-task-backend.*|chat-client-backend.*\"} != 0",
+            "severity": 1,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {},
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "oscar",
+      "cron_pattern": "@every 30s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "Pod that exited with error - K8S",
+      "note": "",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 60,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "kube_pod_container_status_last_terminated_exitcode{exit_code!=\"0\",namespace!=\"g32-tidb\",namespace=~\"g32.*\",container!~\"base-task-backend|chat-client-backend\"}\n  and\n  on(pod, namespace) kube_pod_container_status_running==0",
+            "severity": 2,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {},
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "超管",
+      "cron_pattern": "@every 60s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "Pod Transmit is too high - K8S",
+      "note": "",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 60,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "sum(rate(container_network_transmit_bytes_total{namespace!=\"g32-tidb\",namespace=~\"g32.*\",pod!~\"kube-prometheus-stack.*|eks-pod-identity.*|kube-proxy.*|aws-node.*\"}[5m])) by (namespace,pod) > 20971520",
+            "severity": 2,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {},
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "超管",
+      "cron_pattern": "@every 30s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "PodRestartRecently - K8S",
+      "note": "Pod has restarted in the last 5 minutes (pod {{ $labels.pod }}, container {{ $labels.container }})",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 0,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "increase(kube_pod_container_status_restarts_total{namespace=~\"g32.*\",container!~\"base-task-backend|chat-client-backend|atmosphere-client-backend|atmosphere-openapi-backend\"}[5m]) > 0",
+            "severity": 1,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {
+        "instance": "{{ $labels.instance }}",
+        "restarts": "{{ $value }}"
+      },
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "oscar",
+      "cron_pattern": "@every 30s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "RedisDown - Redis",
+      "note": "Redis down (instance {{ $labels.instance }})",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 120,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "redis_up == 0",
+            "severity": 2,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {
+        "instance": "{{ $labels.instance }}"
+      },
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "超管",
+      "cron_pattern": "@every 30s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "RedisOutOfSystemMemory - Redis",
+      "note": "Redis out of system memory (instance {{ $labels.instance }}) > 2G",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 120,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "redis_memory_used_bytes / 1024 / 1024 / 1024 > 2",
+            "severity": 2,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {
+        "instance": "{{ $labels.instance }}"
+      },
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "超管",
+      "cron_pattern": "@every 30s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "RedisRejectedConnections - Redis",
+      "note": "Redis rejected connections (instance {{ $labels.instance }})",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 60,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "increase(redis_rejected_connections_total[1m]) > 0",
+            "severity": 2,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {},
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "超管",
+      "cron_pattern": "@every 30s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "RedisTooManyConnections - Redis",
+      "note": "Redis too many connections (instance {{ $labels.instance }})",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 120,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "redis_connected_clients / redis_config_maxclients * 100 > 90",
+            "severity": 2,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {
+        "instance": "{{ $labels.instance }}"
+      },
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "超管",
+      "cron_pattern": "@every 30s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "RocketMQConsumeHigh - Rocketmq",
+      "note": "{{$labels.cluster}} consuming tps too high.",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 600,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "sum(rocketmq_consumer_tps) by (cluster) >= 5000",
+            "severity": 2,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {
+        "detail": " cluster={{ $labels.cluster }} group={{ $labels.group }} topic={{ $labels.topic }} tps={{ $value }}",
+        "instance": "{{ $instance }}"
+      },
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "超管",
+      "cron_pattern": "@every 60s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "RocketMQConsumerFallingBehind - Rocketmq",
+      "note": "consumer {{$labels.group}} on {{$labels.topic}} lag behind",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 120,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "(sum(rocketmq_producer_offset) by (topic) - on(topic)  group_right  sum(rocketmq_consumer_offset) by (group,topic)) - ignoring(group) group_left sum (avg_over_time(rocketmq_producer_tps[5m])) by (topic)*5*60 > 0",
+            "severity": 2,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {
+        "instance": "{{ $labels.instance }}"
+      },
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "超管",
+      "cron_pattern": "@every 30s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "RocketMQGroupGetLatencyByStoretime - Rocketmq",
+      "note": "consumer {{$labels.group}} on {{$labels.broker}}, {{$labels.topic}} consume time lag behind message store time",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 120,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "rocketmq_group_get_latency_by_storetime > 1000",
+            "severity": 2,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {
+        "instance": "{{ $labels.instance }}"
+      },
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "超管",
+      "cron_pattern": "@every 30s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            1
+          ]
+        }
+      ],
+      "name": "RocketMQProduceHigh - Rocketmq",
+      "note": "{{$labels.cluster}} Sending tps too high.",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 120,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "sum(rocketmq_producer_tps) by (cluster) >= 5000",
+            "severity": 2,
+            "unit": "none"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {
+        "instance": "{{ $labels.instance }}"
+      },
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "超管",
+      "cron_pattern": "@every 30s",
+      "notify_rule_ids": [
+        1
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            4
+          ]
+        }
+      ],
+      "name": "TiDB 查询 P999 延迟超过 3s",
+      "note": "(TiDB Cluster {{ $labels.tidb_cluster }})",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 30,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "histogram_quantile(0.999, sum(rate(tidb_server_handle_query_duration_seconds_bucket[1m])) by (le)) > 3",
+            "severity": 1,
+            "unit": "seconds"
+          }
+        ],
+        "task_tpls": []
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 5,
+      "notify_max_number": 2,
+      "recover_duration": 60,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {
+        "tidb_cluster": "{{ $labels.tidb_cluster }}"
+      },
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "oscar",
+      "cron_pattern": "@every 15s",
+      "notify_rule_ids": [
+        1,
+        6
+      ],
+      "notify_version": 1
+    },
+    {
+      "cate": "prometheus",
+      "datasource_queries": [
+        {
+          "match_type": 0,
+          "op": "in",
+          "values": [
+            4
+          ]
+        }
+      ],
+      "name": "磁盘 sda 读延迟过高大于1.5ms",
+      "note": "(instance {{ $labels.instance }}, device {{ $labels.device }})",
+      "prod": "metric",
+      "delay": 0,
+      "prom_for_duration": 30,
+      "rule_config": {
+        "queries": [
+          {
+            "prom_ql": "((rate(node_disk_read_time_seconds_total{device=~\"sda\", instance=~\"10.199.64.(14|15|31):9100\"}[20s]) / rate(node_disk_reads_completed_total{device=~\"sda\", instance=~\"10.199.64.(14|15|31):9100\"}[20s])) or (irate(node_disk_read_time_seconds_total{device=~\"sda\", instance=~\"10.199.64.(14|15|31):9100\"}[5m]) / irate(node_disk_reads_completed_total{device=~\"sda\", instance=~\"10.199.64.(14|15|31):9100\"}[5m]))) > 0.0015",
+            "severity": 2,
+            "unit": "seconds"
+          }
+        ]
+      },
+      "event_relabel_config": null,
+      "prom_eval_interval": 15,
+      "enable_in_bg": 1,
+      "notify_recovered": 1,
+      "notify_repeat_step": 60,
+      "notify_max_number": 0,
+      "recover_duration": 0,
+      "callbacks": [],
+      "append_tags": [],
+      "annotations": {
+        "device": "{{ $labels.device }}",
+        "instance": "{{ $labels.instance }}"
+      },
+      "uuid": 0,
+      "cur_event_count": 0,
+      "update_by_nickname": "corwin",
+      "cron_pattern": "@every 15s",
+      "notify_rule_ids": [
+        1,
+        7
+      ],
+      "notify_version": 1
+    }
+  ]

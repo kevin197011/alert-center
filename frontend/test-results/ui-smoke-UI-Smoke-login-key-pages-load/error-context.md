@@ -1,0 +1,282 @@
+# Page snapshot
+
+```yaml
+- generic [ref=e3]:
+  - complementary [ref=e4]:
+    - generic [ref=e5]:
+      - img "Alert Center" [ref=e7]
+      - menu [ref=e8]:
+        - menuitem "dashboard 仪表盘" [ref=e9] [cursor=pointer]:
+          - img "dashboard" [ref=e10]:
+            - img [ref=e11]
+          - generic [ref=e13]: 仪表盘
+        - menuitem "bell 告警规则" [ref=e14] [cursor=pointer]:
+          - img "bell" [ref=e15]:
+            - img [ref=e16]
+          - generic [ref=e18]: 告警规则
+        - menuitem "api 告警渠道" [ref=e19] [cursor=pointer]:
+          - img "api" [ref=e20]:
+            - img [ref=e21]
+          - generic [ref=e23]: 告警渠道
+        - menuitem "file-text 告警模板" [ref=e24] [cursor=pointer]:
+          - img "file-text" [ref=e25]:
+            - img [ref=e26]
+          - generic [ref=e28]: 告警模板
+        - menuitem "setting 告警历史" [ref=e29] [cursor=pointer]:
+          - img "setting" [ref=e30]:
+            - img [ref=e31]
+          - generic [ref=e33]: 告警历史
+        - menuitem "stop 告警静默" [ref=e34] [cursor=pointer]:
+          - img "stop" [ref=e35]:
+            - img [ref=e36]
+          - generic [ref=e38]: 告警静默
+        - menuitem "safety SLA配置" [ref=e39] [cursor=pointer]:
+          - img "safety" [ref=e40]:
+            - img [ref=e41]
+          - generic [ref=e44]: SLA配置
+        - menuitem "calendar 值班管理" [ref=e45] [cursor=pointer]:
+          - img "calendar" [ref=e46]:
+            - img [ref=e47]
+          - generic [ref=e49]: 值班管理
+        - menuitem "node-index 关联分析" [ref=e50] [cursor=pointer]:
+          - img "node-index" [ref=e51]:
+            - img [ref=e52]
+          - generic [ref=e54]: 关联分析
+        - menuitem "warning SLA违约" [ref=e55] [cursor=pointer]:
+          - img "warning" [ref=e56]:
+            - img [ref=e57]
+          - generic [ref=e59]: SLA违约
+        - menuitem "bar-chart 值班报告" [ref=e60] [cursor=pointer]:
+          - img "bar-chart" [ref=e61]:
+            - img [ref=e62]
+          - generic [ref=e64]: 值班报告
+        - menuitem "arrow-up 升级历史" [ref=e65] [cursor=pointer]:
+          - img "arrow-up" [ref=e66]:
+            - img [ref=e67]
+          - generic [ref=e69]: 升级历史
+        - menuitem "folder-open 工单管理" [ref=e70] [cursor=pointer]:
+          - img "folder-open" [ref=e71]:
+            - img [ref=e72]
+          - generic [ref=e74]: 工单管理
+        - menuitem "bar-chart 告警统计" [ref=e75] [cursor=pointer]:
+          - img "bar-chart" [ref=e76]:
+            - img [ref=e77]
+          - generic [ref=e79]: 告警统计
+        - menuitem "database 数据源" [ref=e80] [cursor=pointer]:
+          - img "database" [ref=e81]:
+            - img [ref=e82]
+          - generic [ref=e84]: 数据源
+        - menuitem "team 用户管理" [ref=e85] [cursor=pointer]:
+          - img "team" [ref=e86]:
+            - img [ref=e87]
+          - generic [ref=e89]: 用户管理
+        - menuitem "audit 审计日志" [ref=e90] [cursor=pointer]:
+          - img "audit" [ref=e91]:
+            - img [ref=e92]
+          - generic [ref=e94]: 审计日志
+        - menuitem "setting 系统设置" [ref=e95] [cursor=pointer]:
+          - img "setting" [ref=e96]:
+            - img [ref=e97]
+          - generic [ref=e99]: 系统设置
+    - img "left" [ref=e101] [cursor=pointer]:
+      - img [ref=e102]
+  - generic [ref=e104]:
+    - banner [ref=e105]:
+      - generic [ref=e106]:
+        - button "bell" [ref=e109] [cursor=pointer]:
+          - img "bell" [ref=e111]:
+            - img [ref=e112]
+        - generic [ref=e115] [cursor=pointer]:
+          - img "user" [ref=e118]:
+            - img [ref=e119]
+          - generic [ref=e121]: admin
+    - main [ref=e122]:
+      - generic [ref=e123]:
+        - generic [ref=e124]:
+          - generic [ref=e128]:
+            - generic [ref=e129]: SLA配置总数
+            - generic [ref=e130]:
+              - img "safety-certificate" [ref=e132]:
+                - img [ref=e133]
+              - generic [ref=e135]: "4"
+          - generic [ref=e139]:
+            - generic [ref=e140]: 已满足
+            - generic [ref=e141]:
+              - img "check-circle" [ref=e143]:
+                - img [ref=e144]
+              - generic [ref=e147]: "0"
+          - generic [ref=e151]:
+            - generic [ref=e152]: 违反SLA
+            - generic [ref=e153]:
+              - img "warning" [ref=e155]:
+                - img [ref=e156]
+              - generic [ref=e158]: "0"
+          - generic [ref=e162]:
+            - generic [ref=e163]: SLA达成率
+            - progressbar [ref=e164]:
+              - img "close-circle" [ref=e168]:
+                - img [ref=e169]
+        - generic [ref=e171]:
+          - generic [ref=e173]:
+            - generic [ref=e174]: SLA配置管理
+            - generic [ref=e176]:
+              - button "reload 刷新" [ref=e178] [cursor=pointer]:
+                - img "reload" [ref=e180]:
+                  - img [ref=e181]
+                - generic [ref=e183]: 刷新
+              - button "创建默认配置" [ref=e185] [cursor=pointer]:
+                - generic [ref=e186]: 创建默认配置
+              - button "plus 新建SLA配置" [ref=e188] [cursor=pointer]:
+                - img "plus" [ref=e190]:
+                  - img [ref=e191]
+                - generic [ref=e194]: 新建SLA配置
+          - generic [ref=e198]:
+            - table [ref=e202]:
+              - rowgroup [ref=e211]:
+                - row "SLA名称 告警级别 响应时限 解决时限 优先级 创建时间 操作" [ref=e212]:
+                  - columnheader "SLA名称" [ref=e213]
+                  - columnheader "告警级别" [ref=e214] [cursor=pointer]:
+                    - generic [ref=e215]:
+                      - generic [ref=e216]: 告警级别
+                      - generic [ref=e218]:
+                        - img [ref=e219]:
+                          - img [ref=e220]
+                        - img [ref=e222]:
+                          - img [ref=e223]
+                  - columnheader "响应时限" [ref=e225]
+                  - columnheader "解决时限" [ref=e226]
+                  - columnheader "优先级" [ref=e227] [cursor=pointer]:
+                    - generic [ref=e228]:
+                      - generic [ref=e229]: 优先级
+                      - generic [ref=e231]:
+                        - img [ref=e232]:
+                          - img [ref=e233]
+                        - img [ref=e235]:
+                          - img [ref=e236]
+                  - columnheader "创建时间" [ref=e238]
+                  - columnheader "操作" [ref=e239]
+              - rowgroup [ref=e240]:
+                - row "Critical SLA CRITICAL clock-circle 15 分钟 safety-certificate 1小时 100 2026-02-05 23:22 edit delete" [ref=e241]:
+                  - cell "Critical SLA" [ref=e242]:
+                    - strong [ref=e244]: Critical SLA
+                  - cell "CRITICAL" [ref=e245]:
+                    - generic [ref=e246]: CRITICAL
+                  - cell "clock-circle 15 分钟" [ref=e247]:
+                    - generic [ref=e248]:
+                      - img "clock-circle" [ref=e250]:
+                        - img [ref=e251]
+                      - generic [ref=e255]: 15 分钟
+                  - cell "safety-certificate 1小时" [ref=e256]:
+                    - generic [ref=e257]:
+                      - img "safety-certificate" [ref=e259]:
+                        - img [ref=e260]
+                      - generic [ref=e262]: 1小时
+                  - cell "100" [ref=e263]:
+                    - generic [ref=e264]: "100"
+                  - cell "2026-02-05 23:22" [ref=e265]
+                  - cell "edit delete" [ref=e266]:
+                    - generic [ref=e267]:
+                      - button "edit" [ref=e269] [cursor=pointer]:
+                        - img "edit" [ref=e271]:
+                          - img [ref=e272]
+                      - button "delete" [ref=e275] [cursor=pointer]:
+                        - img "delete" [ref=e277]:
+                          - img [ref=e278]
+                - row "Warning SLA WARNING clock-circle 30 分钟 safety-certificate 2小时 50 2026-02-05 23:22 edit delete" [ref=e280]:
+                  - cell "Warning SLA" [ref=e281]:
+                    - strong [ref=e283]: Warning SLA
+                  - cell "WARNING" [ref=e284]:
+                    - generic [ref=e285]: WARNING
+                  - cell "clock-circle 30 分钟" [ref=e286]:
+                    - generic [ref=e287]:
+                      - img "clock-circle" [ref=e289]:
+                        - img [ref=e290]
+                      - generic [ref=e294]: 30 分钟
+                  - cell "safety-certificate 2小时" [ref=e295]:
+                    - generic [ref=e296]:
+                      - img "safety-certificate" [ref=e298]:
+                        - img [ref=e299]
+                      - generic [ref=e301]: 2小时
+                  - cell "50" [ref=e302]:
+                    - generic [ref=e303]: "50"
+                  - cell "2026-02-05 23:22" [ref=e304]
+                  - cell "edit delete" [ref=e305]:
+                    - generic [ref=e306]:
+                      - button "edit" [ref=e308] [cursor=pointer]:
+                        - img "edit" [ref=e310]:
+                          - img [ref=e311]
+                      - button "delete" [ref=e314] [cursor=pointer]:
+                        - img "delete" [ref=e316]:
+                          - img [ref=e317]
+                - row "Test SLA b2f6e9 WARNING clock-circle 10 分钟 safety-certificate 1小时 5 2026-02-07 07:18 edit delete" [ref=e319]:
+                  - cell "Test SLA b2f6e9" [ref=e320]:
+                    - strong [ref=e322]: Test SLA b2f6e9
+                  - cell "WARNING" [ref=e323]:
+                    - generic [ref=e324]: WARNING
+                  - cell "clock-circle 10 分钟" [ref=e325]:
+                    - generic [ref=e326]:
+                      - img "clock-circle" [ref=e328]:
+                        - img [ref=e329]
+                      - generic [ref=e333]: 10 分钟
+                  - cell "safety-certificate 1小时" [ref=e334]:
+                    - generic [ref=e335]:
+                      - img "safety-certificate" [ref=e337]:
+                        - img [ref=e338]
+                      - generic [ref=e340]: 1小时
+                  - cell "5" [ref=e341]:
+                    - generic [ref=e342]: "5"
+                  - cell "2026-02-07 07:18" [ref=e343]
+                  - cell "edit delete" [ref=e344]:
+                    - generic [ref=e345]:
+                      - button "edit" [ref=e347] [cursor=pointer]:
+                        - img "edit" [ref=e349]:
+                          - img [ref=e350]
+                      - button "delete" [ref=e353] [cursor=pointer]:
+                        - img "delete" [ref=e355]:
+                          - img [ref=e356]
+                - row "Info SLA INFO clock-circle 60 分钟 safety-certificate 4小时 10 2026-02-05 23:22 edit delete" [ref=e358]:
+                  - cell "Info SLA" [ref=e359]:
+                    - strong [ref=e361]: Info SLA
+                  - cell "INFO" [ref=e362]:
+                    - generic [ref=e363]: INFO
+                  - cell "clock-circle 60 分钟" [ref=e364]:
+                    - generic [ref=e365]:
+                      - img "clock-circle" [ref=e367]:
+                        - img [ref=e368]
+                      - generic [ref=e372]: 60 分钟
+                  - cell "safety-certificate 4小时" [ref=e373]:
+                    - generic [ref=e374]:
+                      - img "safety-certificate" [ref=e376]:
+                        - img [ref=e377]
+                      - generic [ref=e379]: 4小时
+                  - cell "10" [ref=e380]:
+                    - generic [ref=e381]: "10"
+                  - cell "2026-02-05 23:22" [ref=e382]
+                  - cell "edit delete" [ref=e383]:
+                    - generic [ref=e384]:
+                      - button "edit" [ref=e386] [cursor=pointer]:
+                        - img "edit" [ref=e388]:
+                          - img [ref=e389]
+                      - button "delete" [ref=e392] [cursor=pointer]:
+                        - img "delete" [ref=e394]:
+                          - img [ref=e395]
+            - list [ref=e397]:
+              - listitem "上一页" [ref=e398]:
+                - button "left" [disabled] [ref=e399]:
+                  - img "left" [ref=e400]:
+                    - img [ref=e401]
+              - listitem "1" [ref=e403] [cursor=pointer]:
+                - generic [ref=e404]: "1"
+              - listitem "下一页" [ref=e405]:
+                - button "right" [disabled] [ref=e406]:
+                  - img "right" [ref=e407]:
+                    - img [ref=e408]
+              - listitem [ref=e410]:
+                - generic "页码" [ref=e411] [cursor=pointer]:
+                  - generic [ref=e413]:
+                    - combobox "页码" [ref=e415]
+                    - generic "10 条/页" [ref=e416]
+                  - generic:
+                    - img:
+                      - img
+```

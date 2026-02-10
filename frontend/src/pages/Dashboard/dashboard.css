@@ -1,0 +1,138 @@
+/* Dashboard page layout and stat cards */
+
+.dashboard-page {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  margin-bottom: 28px;
+}
+
+.dashboard-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.02em;
+}
+
+.dashboard-subtitle {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+[data-theme='dark'] .dashboard-subtitle,
+.ant-layout-content[style*='background: rgb(31, 31, 31)'] .dashboard-subtitle {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.dashboard-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 280px;
+}
+
+/* Stats section */
+
+.dashboard-stats {
+  margin-bottom: 28px;
+}
+
+.dashboard-stat-card {
+  border-radius: 10px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.dashboard-stat-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-stat-card .ant-statistic-title {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.dashboard-stat-card .ant-statistic-content {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.dashboard-stat-card .ant-statistic-content-value {
+  letter-spacing: -0.02em;
+}
+
+.stat-icon {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.stat-icon--blue {
+  color: #1890ff;
+}
+
+.stat-icon--cyan {
+  color: #13c2c2;
+}
+
+.stat-icon--orange {
+  color: #fa8c16;
+}
+
+.stat-icon--green {
+  color: #52c41a;
+}
+
+/* Recent alerts section */
+
+.dashboard-recent {
+  margin-bottom: 0;
+}
+
+.dashboard-recent-card {
+  border-radius: 10px;
+}
+
+.dashboard-recent-card .ant-card-head {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  font-weight: 600;
+}
+
+.dashboard-recent-link {
+  color: #1890ff;
+  font-size: 13px;
+}
+
+.dashboard-recent-link:hover {
+  color: #40a9ff;
+}
+
+.dashboard-recent-loading {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.dashboard-recent-empty {
+  text-align: center;
+  padding: 48px 24px;
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.dashboard-recent-empty p {
+  margin: 12px 0 0 0;
+  font-size: 14px;
+}
+
+.dashboard-recent .ant-table {
+  font-size: 13px;
+}
+
+.dashboard-recent .ant-table-thead > tr > th {
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
